@@ -1,0 +1,10 @@
+.sidebar-container {
+    background-color: #fff;
+    margin-right: 1rem;
+    border-radius: 1rem;
+}
+
+.active-link {
+    background-color: rgb(221, 187, 187);
+    color: rgb(212, 49, 49);
+}

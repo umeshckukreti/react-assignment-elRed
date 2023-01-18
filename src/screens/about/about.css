@@ -1,0 +1,33 @@
+.active-tab-link {
+    border-bottom: 2px solid pink;
+
+}
+
+.about-outlet-container {}
+
+.verified-link {
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.card-container {}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    grid-gap: 16px;
+    overflow: hidden;
+}
+
+.more-icon {
+    color: rgb(201, 156, 156);
+    display: inline-block;
+    padding-inline: 6px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    cursor: pointer;
+}
+
+.links-container-media svg {
+    font-size: 40px;
+}

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-assignment-elRed/static/css/main.117b45db.css",
+    "main.js": "/react-assignment-elRed/static/js/main.c5260ae5.js",
+    "index.html": "/react-assignment-elRed/index.html",
+    "main.117b45db.css.map": "/react-assignment-elRed/static/css/main.117b45db.css.map",
+    "main.c5260ae5.js.map": "/react-assignment-elRed/static/js/main.c5260ae5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.117b45db.css",
+    "static/js/main.c5260ae5.js"
+  ]
+}

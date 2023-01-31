@@ -1,7 +1,8 @@
-import React from "react";
 import routeConstant from "routing/utils/routeConstant";
 import { Link, useLocation } from "react-router-dom";
 import "./sidebar.css";
+
+// const drawerWidth = 240;
 
 function Sidebar() {
   const location = useLocation();

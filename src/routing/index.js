@@ -1,6 +1,6 @@
 import MainLayout from "component/layout/MainLayout";
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Routes } from "react-router-dom";
 import Complain from "screens/about/component/Complain";
 import FAQ from "screens/about/component/FAQ";
 import Information from "screens/about/component/Information";
@@ -14,6 +14,7 @@ import Partners from "screens/partners/index";
 import Payments from "screens/payment/index";
 import Product from "screens/product/index";
 import Team from "screens/team/index";
+import { Navigate } from "../../node_modules/react-router-dom/dist/index";
 import routeConstant from "./utils/routeConstant";
 
 function Navigation() {

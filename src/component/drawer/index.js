@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
@@ -8,67 +8,55 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import { useContextProvider } from "context/index";
+import Address from "./component/Address";
+import "./styles.css";
+import Contacts from "./component/Contacts";
 
 export default function RightDrawer() {
-  const [open, setOpen] = useState(false);
+  const { openDrawer, setOpenDrawer } = useContextProvider();
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    setOpen(!open);
+  console.log(openDrawer);
+
+  const toggleDrawer = () => {
+    console.log(openDrawer);
+
+    setOpenDrawer({ ...openDrawer, open: !openDrawer.open });
   };
-
-  const list = (anchor) => (
-    <Box
-      sx={{ width: 500 }}
-      role="presentation"
-      onClick={toggleDrawer()}
-      onKeyDown={toggleDrawer()}
-    >
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon
-              onClick={() => {
-                toggleDrawer();
-              }}
-            >
-              <KeyboardBackspaceIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Statement"} />
-          </ListItemButton>
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
 
   return (
     <div>
       <React.Fragment>
         <SwipeableDrawer
           anchor={"right"}
-          open={open}
+          open={openDrawer.open}
           onClose={() => {
-            setOpen(true);
+            setOpenDrawer({ ...openDrawer, open: false });
           }}
           onOpen={() => {
-            setOpen(true);
+            setOpenDrawer({ ...openDrawer, open: true });
           }}
         >
-          {list()}
+          <Box sx={{ width: 500 }} role="presentation">
+            <List>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon
+                    onClick={() => {
+                      toggleDrawer();
+                    }}
+                  >
+                    <KeyboardBackspaceIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={openDrawer.type} />
+                </ListItemButton>
+              </ListItem>
+            </List>
+            <Divider />
+            <div className="form-container">
+              {openDrawer.type === "Contacts" ? <Contacts /> : <Address />}
+            </div>
+          </Box>
         </SwipeableDrawer>
       </React.Fragment>
     </div>

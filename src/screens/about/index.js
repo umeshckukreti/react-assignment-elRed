@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import routeConstant from "routing/utils/routeConstant";
 import "./about.css";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
+import { useNavigate } from "react-router-dom";
 
 function About() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate(`${routeConstant.ABOUT}/${routeConstant.TAB_INFORMATION}`, {
+      replace: true,
+    });
+  }, []);
+
   return (
     <div>
       <h3>About Us</h3>

@@ -1,11 +1,14 @@
 import routeConstant from "routing/utils/routeConstant";
 import { Link, useLocation } from "react-router-dom";
 import "./sidebar.css";
+import { useContextProvider } from "context/index";
 
 // const drawerWidth = 240;
 
 function Sidebar() {
   const location = useLocation();
+  const { showNav, setShowNav } = useContextProvider();
+
   return (
     <div className=" d-flex flex-column sidebar-container height-100 justify-content-between">
       <div className="d-flex justify-content-center align-items-baseline d-sm-flex d-none">
@@ -20,12 +23,11 @@ function Sidebar() {
       </div>
       <div className=" d-flex flex-column flex-shrink-0 p-3 ">
         <ul className="nav nav-pills flex-column mb-auto d-sm-none d-block">
-          <li
-            className="nav-item"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarScroll"
-          >
+          <li className="nav-item">
             <Link
+              onClick={() => {
+                setShowNav(!showNav);
+              }}
               to={routeConstant.DASHBOARD}
               className={
                 !location.pathname.includes(routeConstant.DASHBOARD)
@@ -37,8 +39,11 @@ function Sidebar() {
               Dashboard
             </Link>
           </li>
-          <li data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+          <li>
             <Link
+              onClick={() => {
+                setShowNav(!showNav);
+              }}
               to={routeConstant.ORDER}
               className={
                 !location.pathname.includes(routeConstant.ORDER)
@@ -49,8 +54,11 @@ function Sidebar() {
               Order
             </Link>
           </li>
-          <li data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+          <li>
             <Link
+              onClick={() => {
+                setShowNav(!showNav);
+              }}
               to={routeConstant.TEAM}
               className={
                 !location.pathname.includes(routeConstant.TEAM)
@@ -61,8 +69,11 @@ function Sidebar() {
               Team Members
             </Link>
           </li>
-          <li data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+          <li>
             <Link
+              onClick={() => {
+                setShowNav(!showNav);
+              }}
               to={routeConstant.PARTNERS}
               className={
                 !location.pathname.includes(routeConstant.PARTNERS)
@@ -73,8 +84,11 @@ function Sidebar() {
               Partners
             </Link>
           </li>
-          <li data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+          <li>
             <Link
+              onClick={() => {
+                setShowNav(!showNav);
+              }}
               to={routeConstant.PRODUCT}
               className={
                 !location.pathname.includes(routeConstant.PRODUCT)
@@ -86,8 +100,11 @@ function Sidebar() {
             </Link>
           </li>
 
-          <li data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+          <li>
             <Link
+              onClick={() => {
+                setShowNav(!showNav);
+              }}
               to={routeConstant.AWARD}
               className={
                 !location.pathname.includes(routeConstant.AWARD)
@@ -98,8 +115,11 @@ function Sidebar() {
               Award & Honors
             </Link>
           </li>
-          <li data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+          <li>
             <Link
+              onClick={() => {
+                setShowNav(!showNav);
+              }}
               to={routeConstant.ABOUT}
               className={
                 !location.pathname.includes(routeConstant.ABOUT)
@@ -111,8 +131,11 @@ function Sidebar() {
             </Link>
           </li>
 
-          <li data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+          <li>
             <Link
+              onClick={() => {
+                setShowNav(!showNav);
+              }}
               to={routeConstant.PAYMENT}
               className={
                 !location.pathname.includes(routeConstant.PAYMENT)
@@ -124,7 +147,7 @@ function Sidebar() {
             </Link>
           </li>
         </ul>
-        <ul className="nav nav-pills flex-column mb-auto d-none d-sm-block">
+        <ul className="nav nav-pills flex-column mb-auto d-none d-sm-block ">
           <li className="nav-item">
             <Link
               to={routeConstant.DASHBOARD}

@@ -1,9 +1,12 @@
 import Sidebar from "component/sidebar/index";
-import React from "react";
+import React, { useState } from "react";
 import "./header.css";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useContextProvider } from "context/index";
 
 function Header() {
+  const { showNav, setShowNav } = useContextProvider();
+
   return (
     <nav class="navbar navbar-expand-sm  header-container">
       <div class="container-fluid">
@@ -17,10 +20,13 @@ function Header() {
               />
             </a>
             <button
-              class="navbar-toggler"
+              class="navbar-toggler "
               type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarScroll"
+              onClick={() => {
+                setShowNav(!showNav);
+              }}
+              // data-bs-toggle="collapse"
+              // data-bs-target="#navbarScroll"
               aria-controls="navbarScroll"
               aria-expanded="false"
               aria-label="Toggle navigation"
@@ -30,12 +36,15 @@ function Header() {
           </div>
 
           <div className="col-lg-10 col-md-8 col-sm-7 sm-header-section position-static position-sm-absolute">
-            <div class="collapse navbar-collapse" id="navbarScroll">
+            <div
+              className={(showNav ? "show" : "") + " collapse navbar-collapse"}
+              id="navbarScroll"
+            >
               <ul
-                class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll header-scroll"
+                class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll header-scroll d-flex flex-column flex-grow-1"
                 // style=""
               >
-                <form class="d-flex">
+                <div class="d-flex">
                   <input
                     class="form-control me-2"
                     type="search"
@@ -51,7 +60,30 @@ function Header() {
                   >
                     Checkout(200)
                   </button>
-                </form>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdownMenuLink"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Admin
+                    </a>
+                    <ul
+                      class="dropdown-menu"
+                      aria-labelledby="navbarDropdownMenuLink"
+                    >
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          logout
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </div>
+
                 <li class="nav-item d-sm-none">
                   <Sidebar />
                 </li>

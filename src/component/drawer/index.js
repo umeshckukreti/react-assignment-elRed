@@ -14,7 +14,8 @@ import "./styles.css";
 import Contacts from "./component/Contacts";
 
 export default function RightDrawer() {
-  const { openDrawer, setOpenDrawer } = useContextProvider();
+  const { openDrawer, setOpenDrawer, showNav, setShowNav } =
+    useContextProvider();
 
   console.log(openDrawer);
 
@@ -37,7 +38,7 @@ export default function RightDrawer() {
             setOpenDrawer({ ...openDrawer, open: true });
           }}
         >
-          <Box sx={{ width: 500 }} role="presentation">
+          <Box sx={{ maxWidth: 400 }} role="presentation">
             <List>
               <ListItem disablePadding>
                 <ListItemButton>

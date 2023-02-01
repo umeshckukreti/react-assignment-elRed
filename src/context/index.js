@@ -4,8 +4,11 @@ const Context = createContext();
 
 function ContextProvider({ children }) {
   const [openDrawer, setOpenDrawer] = useState({ open: false, type: "" });
+  const [showNav, setShowNav] = useState(false);
   return (
-    <Context.Provider value={{ openDrawer, setOpenDrawer }}>
+    <Context.Provider
+      value={{ openDrawer, setOpenDrawer, showNav, setShowNav }}
+    >
       {children}
     </Context.Provider>
   );

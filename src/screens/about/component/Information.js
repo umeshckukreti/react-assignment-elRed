@@ -7,6 +7,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import "../about.css";
 
 function Information() {
   useEffect(() => {
@@ -42,13 +43,13 @@ function Information() {
         </Card>
         <Card title="Social Media Links" Icon={AccountBoxIcon}>
           <div className="d-flex justify-content-around links-container-media my-3">
-            <LanguageIcon />
-            <InstagramIcon />
-            <FacebookIcon />
-            <TwitterIcon />
+            <LanguageIcon className="pe-auto" />
+            <InstagramIcon className="pe-auto" />
+            <FacebookIcon className="pe-auto" />
+            <TwitterIcon className="pe-auto" />
           </div>
         </Card>
-        <Card title="Statement" Icon={AccountBoxIcon}>
+        <Card title="Statement " Icon={AccountBoxIcon}>
           <span>demo@elred.com</span>
         </Card>
       </div>

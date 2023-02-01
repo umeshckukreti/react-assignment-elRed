@@ -10,3 +10,18 @@
     height: 64px;
 
 }
+
+.header-scroll {
+    height: 100%;
+}
+
+.sm-header-section {
+    position: absolute;
+    top: 58px;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}

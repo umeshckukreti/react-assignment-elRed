@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 function About() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+
   useEffect(() => {
     navigate(`${routeConstant.ABOUT}/${routeConstant.TAB_INFORMATION}`, {
       replace: true,

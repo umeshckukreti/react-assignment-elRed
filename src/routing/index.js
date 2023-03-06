@@ -19,7 +19,7 @@ import routeConstant from "./utils/routeConstant";
 
 function Navigation() {
   return (
-    <BrowserRouter basename="react-assignment-elRed">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route path={routeConstant.ABOUT} element={<About />}>
